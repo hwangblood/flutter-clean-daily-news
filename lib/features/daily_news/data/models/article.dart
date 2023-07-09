@@ -2,14 +2,14 @@ import 'package:clean_daily_news/features/daily_news/domain/entities/article.dar
 
 class ArticleModel extends ArticleEntity {
   ArticleModel({
-    int? id,
-    String? author,
-    String? title,
-    String? description,
-    String? url,
-    String? imageUrl,
-    String? publishedAt,
-    String? content,
+    super.id,
+    super.author,
+    super.title,
+    super.description,
+    super.url,
+    super.urlToImage,
+    super.publishedAt,
+    super.content,
   });
 
   factory ArticleModel.fromJson(Map<String, dynamic> map) => ArticleModel(
@@ -17,7 +17,7 @@ class ArticleModel extends ArticleEntity {
         title: map['title'] ?? '',
         description: map['description'] ?? '',
         url: map['url'] ?? '',
-        imageUrl: map['imageUrl'] ?? '',
+        urlToImage: map['urlToImage'] ?? '',
         publishedAt: map['publishedAt'] ?? '',
         content: map['content'] ?? '',
       );

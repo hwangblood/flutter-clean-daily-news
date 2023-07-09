@@ -8,8 +8,11 @@ part 'news_api_service.g.dart';
 
 @RestApi(baseUrl: newsApiBaseUrl)
 abstract class NewsApiService {
-  factory NewsApiService(Dio dio) = _NewsApiService;
+  factory NewsApiService(Dio dio, {String baseUrl}) = _NewsApiService;
 
+  // FIXME the response from the endpoint is not a list of article models, We
+  // manually changed the method of Retrofit generation to obtain the required
+  // list of article models
   @GET('/top-headlines')
   Future<HttpResponse<List<ArticleModel>>> getNewsArticles({
     @Query('apiKey') String? apiKey,

@@ -1,18 +1,19 @@
 import 'package:bloc/bloc.dart';
-import 'package:clean_daily_news/core/resources/data_state.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
+import 'package:clean_daily_news/core/resources/data_state.dart';
 import 'package:clean_daily_news/features/daily_news/domain/entities/article.dart';
 import 'package:clean_daily_news/features/daily_news/domain/usecases/get_article.dart';
 
-part 'remote_article_event.dart';
-part 'remote_article_state.dart';
+part 'remote_articles_event.dart';
+part 'remote_articles_state.dart';
 
-class RemoteArticleBloc extends Bloc<RemoteArticleEvent, RemoteArticleState> {
+class RemoteArticlesBloc
+    extends Bloc<RemoteArticlesEvent, RemoteArticlesState> {
   final GetArticleUseCase _getArticleUseCase;
 
-  RemoteArticleBloc(
+  RemoteArticlesBloc(
     this._getArticleUseCase,
   ) : super(RemoteArticlesLoading()) {
     on<GetArticles>(onGetArticles);
@@ -20,7 +21,7 @@ class RemoteArticleBloc extends Bloc<RemoteArticleEvent, RemoteArticleState> {
 
   Future<void> onGetArticles(
     GetArticles event,
-    Emitter<RemoteArticleState> emit,
+    Emitter<RemoteArticlesState> emit,
   ) async {
     final dataState = await _getArticleUseCase();
 

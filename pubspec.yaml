@@ -44,6 +44,7 @@ dependencies:
   # date format
   intl: ^0.18.1
   # database (SQLite)
+  sqflite: ^2.2.6
   floor: ^1.4.2
   # make request to api
   dio: ^5.1.2
